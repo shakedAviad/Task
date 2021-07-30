@@ -14,5 +14,6 @@ if __name__ == '__main__':
     print_hi('PyCharm')
     print_hi('test')
     print_hi('test2')
+    print_hi('push to git')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
