@@ -5,18 +5,26 @@ from fuzzywuzzy import fuzz
 
 
 class ClusteringName:
-    def __init__(self, file_name: str = None):
+    def __init__(self, file_name: str = None,num_of_group:int =3):
         self.EOF = False
         self.before_processing = list()
         self.groups = list()
         self.file_name = file_name
+        self.num_of_group = num_of_group
 
     def grouping(self):
         with open(self.file_name, "r") as file:
             for name in file:
                 self.algorithm(name)
         self.groups.sort(key=lambda n:-len(n))
-
+        return self.get_biggest_groups()
+    def get_biggest_groups(self):
+        li=list()
+        di=dict()
+        for i in range(self.num_of_group):
+            li.append(self.groups[i])
+            di[f"group  {i+1}"]=(len(li[i]),li[i])
+        return di
     def input_file(self, lock):
         with open(self.file_name, "r") as file:
             for name in file:
@@ -70,7 +78,7 @@ if __name__ == '__main__':
     print(f"Program time with parallel {end - start}")
     t = ClusteringName(file_name1)
     start = time.perf_counter()
-    t.grouping()
-    print(t.groups)
+    print(t.grouping())
+
     end = time.perf_counter()
     print(f"Program time with straight  {end - start}")
