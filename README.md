@@ -13,7 +13,7 @@ Clone this project
 ```bash
 git clone https://github.com/shakedAviad/Task.git
 ```
-Then there's a short main function with examples
+Then there is a short main function with examples
 
 
 I hope you will find interest in this project and that we will find a common future :)
