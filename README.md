@@ -3,7 +3,7 @@ This project deals with grouping names with spelling errors into groups
 So that each group member has Belonging relative to the rest of the group
 
 ## Installation
-The [Levenshtein](https://www.datacamp.com/community/tutorials/fuzzy-string-python) package must be installed for the run time
+The [Levenshtein](https://www.datacamp.com/community/tutorials/fuzzy-string-python) package must be installed 
 and import fuzz from fuzzywuzzy for algorithm
 ```bash
 pip install python-Levenshtein
