@@ -5,7 +5,7 @@ target_group = list()
 real_groups = dict()
 
 
-def grouping_names(file_name: str = None, number_of_groups: int = 0) -> list(list):
+def grouping_names(file_name: str = None, number_of_groups: int = 0) -> list:
     """
     This is the primary function,goes through every name in the file
     and sends the name  to the  algorithm function(explanation below)
@@ -111,7 +111,14 @@ if __name__ == '__main__':
     file_name1 = "../data/Task_15_names.txt"
     file_name2 = "../data/02 Task_clustering_1000names.txt"
 
+    print(f"Short File 15 names ")
     start = time.perf_counter()
     grouping_names(file_name1, 3)
     end = time.perf_counter()
-    print(f"Program time with straight  {end - start}")
+    print(f"Time of 15 names  {end - start}")
+
+    print(f"Long File 1000 names ")
+    start = time.perf_counter()
+    grouping_names(file_name2, 3)
+    end = time.perf_counter()
+    print(f"Time of Long file 1000 names  {end - start}")
