@@ -11,7 +11,7 @@ pip install python-Levenshtein
 ## Usage
 Clone this project
 ```bash
-clone 
+git clone https://github.com/shakedAviad/Task.git
 ```
 Then there's a short main function with examples
 
