@@ -1,4 +1,3 @@
-import time
 from fuzzywuzzy import fuzz
 
 target_group = list()
@@ -7,11 +6,9 @@ real_groups = dict()
 
 def grouping_names(file_name: str = None, number_of_groups: int = 0) -> list:
     """
-    This is the primary function,goes through every name in the file
-    and sends the name  to the  algorithm function(explanation below)
-    finally prints the names that are repeated the most times on request
-
-    Issues:If you want a very high level of accuracy it may take time
+    This is the primary function, it goes through every name in the file
+    and sends the name to the algorithm function(explanation below).
+    It finally prints the names that are repeated to a several groups (as many as you want).
 
     :param file_name:
     :param number_of_groups:
@@ -28,7 +25,8 @@ def grouping_names(file_name: str = None, number_of_groups: int = 0) -> list:
 
 def simplify(name: str = None) -> str:
     """
-    Simplifies a name so that there is a high match but without damaging the name's standards
+    Simplifies a name, so that there is a high match.
+    Without changing the original names
     :param name:
     :return:
     """
@@ -39,9 +37,10 @@ def algorithm(target: str = None) -> None:
     """
     This function uses an external directory
     see:https://www.datacamp.com/community/tutorials/fuzzy-string-python
-    each name(target) is matched to the other existing groups
-    if a relatively high match is found then added to the appropriate list
-    else a new group with the current name opens
+    Each name is associated with an existing group in case there is a match.
+
+    If a relevant match is found, we add it to the suitable group
+    Otherwise, we will create a new group with the current name
     :param target:
     :return:
     """
@@ -57,7 +56,7 @@ def algorithm(target: str = None) -> None:
 def condition(group, target) -> bool:
     """
     For each group and target name
-    check whether the destination belongs approximately to each member of the group
+    we checks if there is a full match between them
     :param group:
     :param target:
     :return:
@@ -69,7 +68,7 @@ def condition(group, target) -> bool:
 
 def ratio(target, name) -> bool:
     """
-    Match check for a name from the group to a target name
+    Checks match for a name from the group and target
     :param target:
     :param name:
     :return:
@@ -83,8 +82,8 @@ def ratio(target, name) -> bool:
 
 def print_groups(number_of_groups: int = 0) -> None:
     """
-    This function pretty prints the names that have been repeated the most times
-    by required quantity
+    This function prints the names that have been repeated the most times
+    by required quantity(number of groups)
     :param number_of_groups:
     :return:
     """
@@ -112,13 +111,9 @@ if __name__ == '__main__':
     file_name2 = "../data/02 Task_clustering_1000names.txt"
 
     print(f"Short File 15 names ")
-    start = time.perf_counter()
     grouping_names(file_name1, 3)
-    end = time.perf_counter()
-    print(f"Time of 15 names  {end - start}")
+
 
     print(f"Long File 1000 names ")
-    start = time.perf_counter()
     grouping_names(file_name2, 3)
-    end = time.perf_counter()
-    print(f"Time of Long file 1000 names  {end - start}")
+
