@@ -1,3 +1,5 @@
+test
+
 # explanation:
 The aim of the project is to classify words (sometimes with spelling mistakes) into groups.
 Each word will eventually belong to a relevant group, with the user being able to choose how many groups he wants to present.
